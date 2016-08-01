@@ -1,0 +1,18 @@
+<?php
+$tempfile = fopen("Temperature.txt", "w") or die("Unable to open file");
+if(isset($_POST['SubmitButton'])){ //check if form was submitted
+$input = $_POST['inputText']; //get input text
+$message = "Your set temperature is: ".$input;
+$temp = $input;
+fwrite($tempfile, $temp);
+}
+fclose($tempfile);
+?>
+
+<html>
+<body>
+<form action="" method="post">
+<?php echo $message; ?>
+  <input type="text" name="inputText"/>
+  <input type="submit" name="SubmitButton"/>
+</form>
