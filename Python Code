@@ -2,7 +2,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 import os
-fileTransfer = "/usr/bin/sshpass -p 'access' rsync -e 'ssh -o StrictHostKeyChecking=no' /home/pi/data.txt kyle@52.26.225.187:/var/www/html/"
+fileTransfer = "/usr/bin/sshpass -p '(yourpassword)' rsync -e 'ssh -o StrictHostKeyChecking=no' /home/pi/data.txt kyle@52.26.225.187:/var/www/html/"
 infile = open('data.txt', 'w')
 infile_two = open('/home/pi/Projects/Webio/html/Temperature.txt', 'r')
 # read SPI data from MCP3008 chip, 8 possible adc's (0 thru 7)
@@ -79,7 +79,7 @@ for x in range(1):
 infile.close()
 
 print ("Starting to send")
-os.system("/usr/bin/sshpass -p 'access' rsync -e 'ssh -o StrictHostKeyChecking=no' /home/pi/data.txt kyle@52.26.225.187:/var/www/html/ | less >> verbose.txt")
+os.system("/usr/bin/sshpass -p '(yourpassword)' rsync -e 'ssh -o StrictHostKeyChecking=no' /home/pi/data.txt kyle@52.26.225.187:/var/www/html/ | less >> verbose.txt")
 print ("transfer complete")
 
 
